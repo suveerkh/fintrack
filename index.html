@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.input {
+  border: none;
+  border-bottom: 2px solid #03c6fc;
+  padding: 10px;
+  width: 70%;
+  box-sizing: border-box;
+  background-color: #030126;
+  outline: none;
+  color: white;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 18px;
+  margin: 0 auto;
+  display: block;
+}
+
+.bg {
+  background-image: url("img/bg.png");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.rounded-corners{
+  border-radius: 25px;
+  border: 2px solid #030126;
+  padding: 20px;
+  width: 500px;
+  height: 550px;
+  background-color: #030126;
+}
+
+.login-text{
+    color:white;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.button {
+  background-color: #03c6fc;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 18px;
+  margin: 20px auto;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 70%; /* Match the input width */
+  box-sizing: border-box;
+}
+</style>
+</head>
+<body class="bg">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<center>
+<div class="rounded-corners">
+<h1 class="login-text">Welcome to FinTrack!</h1>
+<h1 class="login-text">where you </h1>
+<h1 class="login-text">Control YOUR Money</h1>
+<br>
+<br>
+<input type="text" id="name" name="name" class="input" placeholder="Enter Your Name" autofocus="">
+<button class="button" onclick="username()">Enter</button>
+</div>
+</center>
+</body>
+<script>
+function username(){
+    var name = document.getElementById("name").value;
+    localStorage.setItem("user", name);
+    window.location.href = "home.html";
+}
+window.onload = function() {
+    var storedName = localStorage.getItem("user");
+    if (storedName) {
+        window.location.href = "home.html";
+    }
+};
+document.getElementById("name").addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        username();
+    }
+});
+</script>
+</html>
